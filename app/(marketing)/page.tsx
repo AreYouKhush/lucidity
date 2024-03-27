@@ -10,7 +10,7 @@ const MarketingPage = () => {
           <Heading />
           <Heroes />
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
   );
