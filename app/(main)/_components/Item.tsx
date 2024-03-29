@@ -34,7 +34,7 @@ interface ItemProps {
   level?: number;
   onExpand?: () => void;
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
   icon: LucideIcon;
 }
 
@@ -110,7 +110,7 @@ export const Item = ({
           role="button"
           onClick={handleExpand}
         >
-          <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/50" />
+          <ChevronIcon className="h-4 w-4 shrink-0 text-muted-foreground/80" />
         </div>
       )}
       {documentIcon ? (
