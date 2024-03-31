@@ -3,7 +3,7 @@ const PublicLayout = ({
 }: Readonly<{
   children: React.ReactNode;
 }>) => {
-  return <div className="h-full bg-[#1F1F1F]">{children}</div>;
+  return <div className="h-full dark:bg-[#1F1F1F]">{children}</div>;
 };
 
 export default PublicLayout;
