@@ -26,7 +26,7 @@ const Banner = ({ documentId }: BannerProps) => {
       error: "Failed to delelte note.",
     });
 
-    router.push("/documents");
+    router.push("/documents/");
   };
 
   const onRestore = () => {
