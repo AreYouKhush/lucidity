@@ -4,6 +4,7 @@ import { IconPicker } from "@/components/icon-picker";
 import { Button } from "@/components/ui/button";
 import { api } from "@/convex/_generated/api";
 import { Doc } from "@/convex/_generated/dataModel";
+import { useCoverImage } from "@/hooks/use-cover-image";
 import { useMutation } from "convex/react";
 import { ImageIcon, Smile, X } from "lucide-react";
 import { ElementRef, useRef, useState } from "react";
@@ -20,7 +21,9 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
   const [value, setValue] = useState(initialData.title);
 
   const update = useMutation(api.documents.update);
-  const removeIcon = useMutation(api.documents.removeIcon)
+  const removeIcon = useMutation(api.documents.removeIcon);
+
+  const coverImage = useCoverImage();
 
   const enableInput = () => {
     if (preview) return;
@@ -51,16 +54,16 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
 
   const onIconSelect = (icon: string) => {
     update({
-        id: initialData._id,
-        icon,
-    })
-  }
+      id: initialData._id,
+      icon,
+    });
+  };
 
   const onRemoveIcon = () => {
     removeIcon({
-        id: initialData._id
-    })
-  }
+      id: initialData._id,
+    });
+  };
 
   return (
     <div className="pl-[54px] group relative">
@@ -102,7 +105,7 @@ export const Toolbar = ({ initialData, preview }: ToolbarProps) => {
             className="text-muted-foreground text-xs"
             variant="outline"
             size="sm"
-            onClick={() => {}}
+            onClick={coverImage.onOpen}
           >
             <ImageIcon className="h-4 w-4 mr-2" />
             Add cover
